@@ -22,19 +22,31 @@ class Line:
         return slope
     
     def compute_horizontal_cross(self):
-        if self.start.y == 0 or self.end.y == 0:
+        if self.start.y <= 0 and self.end.y >= 0:
             return "True"
-        else:
+        elif self.start.y >= 0 and self.end.y <=0:
+            return "True"
+        elif self.start.y >= 0 and self.end.y >= 0:
             return "False"
+        elif self.start.y <= 0 and self.end.y <=0:
+            return "False"
+        else:
+            return ""
     
     def compute_vertical_cross(self):
-        if self.start.x == 0 or self.end.x == 0:
+        if self.start.x <= 0 and self.end.x >= 0:
             return "True"
-        else:
+        elif self.start.x >= 0 and self.end.x <= 0:
+            return "True"
+        elif self.start.x >= 0 and self.end.x >= 0:
             return "False"
+        elif self.start.x <= 0 and self.end.x <=0:
+            return "False"
+        else:
+            return ""
 
-first_point = Point(-1, -1)
-second_point = Point(3, 3)
+first_point = Point(1, 1)
+second_point = Point(3, -2)
 line = Line(first_point, second_point)
 print("Lenght: ", line.compute_lenght())
 print("Slope: ", line.compute_slope())
